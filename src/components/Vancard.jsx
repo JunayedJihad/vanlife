@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 const Vancard = (props) => {
     let catStyle = {
@@ -9,20 +10,22 @@ const Vancard = (props) => {
     }
     return (
       <div className="van-item mb-4">
-        <div className="van-img">
-          <img src={props.imageUrl} alt="van" />
-        </div>
-        <div className="van-info">
-          <div className="van-name-class">
-            <div className="van-name">{props.name}</div>
-            <div className="van-category px-3 py-1" style={catStyle}>
-              {props.type}
+        <Link to={`/vans/${props.id}`}>
+          <div className="van-img">
+            <img src={props.imageUrl} alt="van" />
+          </div>
+          <div className="van-info">
+            <div className="van-name-class">
+              <div className="van-name">{props.name}</div>
+              <div className="van-category px-3 py-1" style={catStyle}>
+                {props.type}
+              </div>
+            </div>
+            <div className="van-price">
+              <span>${props.price}</span>/day
             </div>
           </div>
-          <div className="van-price">
-            <span>${props.price}</span>/day
-          </div>
-        </div>
+        </Link>
       </div>
     );
 };

@@ -14,6 +14,9 @@ body{
 img{
     max-width: 100%;
 }
+span,a{
+    display: inline-block;
+}
 #root{
     width: 800px;
     box-shadow: 0px 4px 6px rgba(0,0,0,0.3);
@@ -21,7 +24,7 @@ img{
 .nav{
     display: flex;
     background-color: beige;
-    height: 10vh;
+    height: 15vh;
     align-items: center;
     gap: 2rem;
     padding: 0 2rem;
@@ -113,4 +116,23 @@ a{
 .van-price span{
     font-weight: bold;
     font-size: 1.2rem;
+}
+
+/* vandetails page */
+
+.busdetails-price{
+    font-size: 1.5rem;
+}
+.busdetails-img{
+    height: 35rem;
+    border-radius: 8px;
+    width: 100%;
+
+
+}
+.busdetails-type{
+    text-transform: capitalize;
+}
+.rent-btn{
+    width: 100%;
 }
