@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Home = () => {
     return (
       <div>
-        <Navbar />
+        
         <div className="main home-hero">
           <h1>You got the travel plans,we got the travel vans</h1>
           <p className="lead">
@@ -15,7 +15,7 @@ const Home = () => {
           </p>
           <Link className='btn btn-warning ' to="/vans">Find Your Van</Link>
         </div>
-        <Footer />
+
       </div>
     );
 };

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const About = () => {
     return (
       <div>
-        <Navbar />
+
         <div className="">
           <img src="../../public/about-hero.png" alt="" />
           <div className="about-body p-4">
@@ -32,7 +32,7 @@ const About = () => {
             </div>
           </div>
         </div>
-        <Footer />
+        
       </div>
     );
 };

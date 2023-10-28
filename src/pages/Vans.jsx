@@ -1,14 +1,33 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import Vancard from '../components/Vancard';
 
 const Vans = () => {
+
+    const [data, setData] = React.useState([])
+    React.useEffect(() => {
+        fetch('/api/vans')
+            .then(response => response.json())
+            .then(res => setData(res.vans))
+
+    }, [])
+
+    const vanElements=data.map(item =>
+
+        <Vancard
+            key={item.id}
+            name={item.name}
+            type={item.type}
+            price={item.price}
+            imageUrl={item.imageUrl}
+          />
+
+    )
+
     return (
-        <div className='main'>
-            <Navbar/>
-            This is Vans Page
-            <Footer/>
-        </div>
+      <div className='main'>
+        <h1>Explore our van options</h1>
+        <div className="vancard-container mt-4">{ vanElements}</div>
+      </div>
     );
 };
 
