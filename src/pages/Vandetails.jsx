@@ -5,7 +5,7 @@ import { Link, useParams } from 'react-router-dom';
 const Vandetails = () => {
 
   const param = useParams();
-  const[data,setData]=React.useState({})
+  const[data,setData]=React.useState(null)
 
   React.useEffect(() => {
     fetch(`/api/vans/${param.id}`)
@@ -25,12 +25,12 @@ const Vandetails = () => {
 
   let catStyle = {
     color: "white",
-    backgroundColor:
-      data.type === "luxury"
+    backgroundColor:data &&
+      (data.type === "luxury"
         ? "#16a085"
         : data.type === "rugged"
         ? "#f39c12"
-        : "steelblue",
+        : "steelblue"),
   }
 
    return (
