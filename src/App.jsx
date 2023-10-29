@@ -4,20 +4,20 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Vans from "./pages/Vans";
 import Vandetails from "./pages/Vandetails";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import Layout from "./components/Layout";
 
 const App = () => {
   return (
     <BrowserRouter>
-      <Navbar/>
-      <Routes> 
-        <Route path="/" element={<Home/>} />
-        <Route path="/about" element={<About/>} />
-        <Route path="/vans" element={<Vans/>} />
-        <Route path="/vans/:id" element={<Vandetails/>} />
+
+      <Routes>
+        <Route element={<Layout/>}>
+          <Route path="/" element={<Home/>} />
+          <Route path="/about" element={<About/>} />
+          <Route path="/vans" element={<Vans/>} />
+          <Route path="/vans/:id" element={<Vandetails/>} />
+        </Route>
       </Routes>
-      <Footer/>
     </BrowserRouter>
   );
 };
