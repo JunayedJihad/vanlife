@@ -4,11 +4,13 @@ import Vancard from '../components/Vancard';
 
 const Vans = () => {
 
-    const [data, setData] = React.useState()
+  const [data, setData] = React.useState()
+
     React.useEffect(() => {
       fetch("/api/vans")
         .then((response) => response.json())
         .then((res) => setData(res.vans));
+
     }, []);
 
   let vanElements=''

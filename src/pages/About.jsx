@@ -8,7 +8,7 @@ const About = () => {
       <div>
 
         <div className="">
-          <img src="../../public/about-hero.png" alt="" />
+          <img src="../about-hero.png" alt="" />
           <div className="about-body p-4">
             <h1>Don't squeeze in a sedan when you could relax in a van</h1>
             <p>
@@ -32,7 +32,7 @@ const About = () => {
             </div>
           </div>
         </div>
-        
+
       </div>
     );
 };

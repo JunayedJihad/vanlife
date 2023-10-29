@@ -14,6 +14,8 @@ const Vandetails = () => {
   }, [param.id]);
 
 
+
+
     function ToVanPage() {
         return (
           <Link to="/vans" className="back-vans py-2 ms-2">

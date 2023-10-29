@@ -16,6 +16,7 @@ img{
 }
 span,a{
     display: inline-block;
+
 }
 #root{
     width: 800px;
@@ -49,7 +50,7 @@ a{
     padding: 2rem;
 }
 .home-hero{
-    background: url(./home-hero.png) rgba(0,0,0,0.5);
+    background: url(../public/home-hero.png) rgba(0,0,0,0.5);
     background-repeat: no-repeat;
     background-size: cover;
     background-blend-mode: color;
@@ -135,4 +136,8 @@ a{
 }
 .rent-btn{
     width: 100%;
+}
+.hostNav{
+    height: 3rem;
+    background-color: rgb(191, 191, 177);
 }
