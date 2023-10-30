@@ -9,6 +9,8 @@ import Income from './components/Income';
 import Review from './components/Review';
 import HostLayout from "./components/HostLayout";
 import Dashboard from "./components/Dashboard";
+import Myvans from "./components/Myvans";
+import MyVanDetails from './pages/MyVanDetails';
 
 
 const App = () => {
@@ -21,6 +23,8 @@ const App = () => {
           <Route path="host" element={<HostLayout />}>
             <Route index element={<Dashboard/>} />
             <Route path="income" element={<Income/>} />
+            <Route path="my-vans" element={<Myvans/>} />
+            <Route path="my-vans/:id" element={<MyVanDetails/>} />
             <Route path="review" element={<Review/>} />
           </Route>
           <Route path="about" element={<About/>} />

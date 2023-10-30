@@ -1,12 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const HostNavbar = () => {
+    let style = {
+      color: "#2980b9",
+      textDecoration: "underline",
+    };
     return (
         <div className='d-flex align-items-center  justify-content-around hostNav'>
-            <Link to=''>Dashboard</Link>
-            <Link to='income'>Income</Link>
-            <Link to='review'>Review</Link>
+            <NavLink style={({isActive})=>isActive ? style:null} end to=''>Dashboard</NavLink>
+            <NavLink style={({isActive})=>isActive ? style:null} end to='my-vans'>My vans</NavLink>
+            <NavLink style={({isActive})=>isActive ? style:null} to='income'>Income</NavLink>
+            <NavLink style={({isActive})=>isActive ? style:null} to='review'>Review</NavLink>
         </div>
     );
 };

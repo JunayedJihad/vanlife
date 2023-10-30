@@ -9,7 +9,7 @@ const Vancard = (props) => {
 
     }
     return (
-      <div className="van-item mb-4">
+      <div data-aos="flip-right" className="van-item mb-4">
         <Link to={`/vans/${props.id}`}>
           <div className="van-img">
             <img src={props.imageUrl} alt="van" />
