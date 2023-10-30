@@ -153,3 +153,9 @@ a{
     border-radius: 5px;
     overflow: hidden;
 }
+
+.short-img{
+    max-width: 9rem;
+    border-radius: 8px;
+    overflow: hidden;
+}
