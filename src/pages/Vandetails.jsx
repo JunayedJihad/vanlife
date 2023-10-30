@@ -18,7 +18,7 @@ const Vandetails = () => {
 
     function ToVanPage() {
         return (
-          <Link to="/vans" className="back-vans py-2 ms-2">
+          <Link to=".." relative='path' className="back-vans py-2 ms-2">
             <i className="fa-regular fa-circle-left"></i>
             <span className="ms-2 fw-light">Back to all vans</span>
           </Link>

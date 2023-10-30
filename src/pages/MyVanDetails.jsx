@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, NavLink } from 'react-router-dom';
+import { useParams, NavLink, Outlet } from 'react-router-dom';
+import HostvanNavbar from '../components/HostvanNavbar';
+import HostVanInfo from '../components/HostVanInfo';
 
 const MyVanDetails = () => {
 
@@ -33,6 +35,10 @@ const MyVanDetails = () => {
       <div className="main">
         {details && (
           <div className="div">
+            <NavLink to=".." relative="path" className="back mb-3">
+              <i className="fa-regular fa-circle-left"></i>
+              <span className="ms-2">Back to all Vans</span>
+            </NavLink>
             <div className="short-info shadow-lg p-3 rounded-3  d-flex align-items-center gap-4">
               <div className="short-img">
                 <img src={details.imageUrl} alt="" />
@@ -45,31 +51,11 @@ const MyVanDetails = () => {
                   {details.type}
                 </span>
                 <span>{details.name}</span>
-                <span>${details.price}/Day</span>
+                <span><span className='fw-bold '>{details.price}$</span>/Day</span>
               </div>
             </div>
-            <div className="hostvan-submenu d-flex justify-content-around my-4">
-              <NavLink style={({isActive})=>isActive ? style:null} to="">Description</NavLink>
-              <NavLink style={({isActive})=>isActive ? style:null} to="pricing">Pricing</NavLink>
-              <NavLink style={({isActive})=>isActive ? style:null} to="photos">Photos</NavLink>
-            </div>
-            <div className="full-info">
-              <p>
-                <span className="fw-bold ">Name:</span>
-                {details.name}
-              </p>
-              <p className="text-capitalize">
-                <span className="fw-bold ">Category:</span>
-                {details.type}
-              </p>
-              <p>
-                <span className="fw-bold ">Description:</span>
-                {details.description}
-              </p>
-              <p>
-                <span className="fw-bold ">Visibility:</span>Public
-              </p>
-            </div>
+            <div className="hostvan-submenu my-4">{<HostvanNavbar />}</div>
+            <Outlet context={details}/>
           </div>
         )}
       </div>

@@ -13,29 +13,29 @@ import Myvans from "./components/Myvans";
 import MyVanDetails from './pages/MyVanDetails';
 import Pricing from './components/Pricing';
 import Photos from './components/Photos';
+import HostVanInfo from "./components/HostVanInfo";
 
 
 const App = () => {
   return (
     <BrowserRouter>
-
       <Routes>
-        <Route path="/" element={<Layout/>}>
-          <Route index element={<Home/>} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
           <Route path="host" element={<HostLayout />}>
-            <Route index element={<Dashboard/>} />
-            <Route path="income" element={<Income/>} />
-            <Route path="my-vans" element={<Myvans/>} />
-            <Route path="my-vans/:id" >
-              <Route index element={<MyVanDetails />}  />
-              <Route path="pricing" element={<Pricing />}  />
-              <Route path="photos" element={<Photos />}  />
+            <Route index element={<Dashboard />} />
+            <Route path="income" element={<Income />} />
+            <Route path="my-vans" element={<Myvans />} />
+            <Route path="my-vans/:id" element={<MyVanDetails />}>
+              <Route index element={<HostVanInfo />} />
+              <Route path="pricing" element={<Pricing />} />
+              <Route path="photos" element={<Photos />} />
             </Route>
-            <Route path="review" element={<Review/>} />
+            <Route path="review" element={<Review />} />
           </Route>
-          <Route path="about" element={<About/>} />
-          <Route path="vans" element={<Vans/>} />
-          <Route path="vans/:id" element={<Vandetails/>} />
+          <Route path="about" element={<About />} />
+          <Route path="vans" element={<Vans />} />
+          <Route path="vans/:id" element={<Vandetails />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -8,8 +8,8 @@ const HostNavbar = () => {
     };
     return (
         <div className='d-flex align-items-center  justify-content-around hostNav'>
-            <NavLink style={({isActive})=>isActive ? style:null} end to=''>Dashboard</NavLink>
-            <NavLink style={({isActive})=>isActive ? style:null} end to='my-vans'>My vans</NavLink>
+            <NavLink style={({isActive})=>isActive ? style:null} end to='.'>Dashboard</NavLink>
+            <NavLink style={({isActive})=>isActive ? style:null}  to='my-vans'>My vans</NavLink>
             <NavLink style={({isActive})=>isActive ? style:null} to='income'>Income</NavLink>
             <NavLink style={({isActive})=>isActive ? style:null} to='review'>Review</NavLink>
         </div>
