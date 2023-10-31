@@ -39,7 +39,7 @@ const Vans = () => {
         <Vancard
           id={item.id}
           key={item.id}
-          state={{search:searchParams.toString(),type:item.type}}
+          state={{search:searchParams.toString(),type:typeFilter}}
           name={item.name}
           type={item.type}
           price={item.price}

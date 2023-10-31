@@ -17,7 +17,7 @@ const Vandetails = (props) => {
 
 
   const search=location.state && `?${location.state.search}`||''
-  const type=location.state && location.state.search.split('=')[1]||'all'
+  const type=location.state && location.state.type||'all'
   // console.log(type);
 
     function ToVanPage() {
