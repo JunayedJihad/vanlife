@@ -1,10 +1,12 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 
 
-const Vandetails = () => {
+const Vandetails = (props) => {
 
   const param = useParams();
+  const location=useLocation()
+  // console.log(location);
   const[data,setData]=React.useState(null)
 
   React.useEffect(() => {
@@ -14,13 +16,15 @@ const Vandetails = () => {
   }, [param.id]);
 
 
-
+  const search=location.state && `?${location.state.search}`||''
+  const type=location.state && location.state.search.split('=')[1]||'all'
+  // console.log(type);
 
     function ToVanPage() {
         return (
-          <Link to=".." relative='path' className="back-vans py-2 ms-2">
+          <Link to={`..${search}`} relative='path' className="back-vans py-2 ms-2">
             <i className="fa-regular fa-circle-left"></i>
-            <span className="ms-2 fw-light">Back to all vans</span>
+            <span className="ms-2 fw-light">Back to {type} vans</span>
           </Link>
         );
   }

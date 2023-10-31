@@ -14,6 +14,7 @@ import MyVanDetails from './pages/MyVanDetails';
 import Pricing from './components/Pricing';
 import Photos from './components/Photos';
 import HostVanInfo from "./components/HostVanInfo";
+import Error from "./pages/Error";
 
 
 const App = () => {
@@ -36,6 +37,7 @@ const App = () => {
           <Route path="about" element={<About />} />
           <Route path="vans" element={<Vans />} />
           <Route path="vans/:id" element={<Vandetails />} />
+          <Route path='*' element={<Error/>} />
         </Route>
       </Routes>
     </BrowserRouter>

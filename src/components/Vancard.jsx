@@ -8,9 +8,10 @@ const Vancard = (props) => {
             props.type === "rugged" ? "#f39c12":"steelblue"
 
     }
+
     return (
-      <div data-aos="flip-right" className="van-item mb-4">
-        <Link to={`/vans/${props.id}`}>
+      <div className="van-item mb-4">
+        <Link to={`${props.id}`} state={{search:props.state.search,type:props.state.type}}>
           <div className="van-img">
             <img src={props.imageUrl} alt="van" />
           </div>

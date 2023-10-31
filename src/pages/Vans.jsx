@@ -9,6 +9,20 @@ const Vans = () => {
   const[searchParams,setSearchParams]=useSearchParams()
   const typeFilter=searchParams.get('type')
 
+  let selected={
+    backgroundColor:"black",
+    color:"white",
+  }
+
+  function handleFiltering(key,value){
+    setSearchParams(prev=>{
+      value===null?
+        prev.delete(key):
+        prev.set(key,value)
+        return prev
+    })
+  }
+
 
     React.useEffect(() => {
       fetch("/api/vans")
@@ -25,6 +39,7 @@ const Vans = () => {
         <Vancard
           id={item.id}
           key={item.id}
+          state={{search:searchParams.toString(),type:item.type}}
           name={item.name}
           type={item.type}
           price={item.price}
@@ -43,10 +58,10 @@ const Vans = () => {
           <NavLink className="px-2 py-1 rounded-2 bg-warning-subtle " to='?type=luxury'>Luxury</NavLink>
           <NavLink className="px-2 py-1 rounded-2 bg-warning-subtle " to='?type=rugged'>Rugged</NavLink>
           <NavLink className="px-2 py-1 rounded-2 bg-warning-subtle " to='.'>Clear filters</NavLink> */}
-          <button className='btn btn-outline-warning py-1' onClick={()=>setSearchParams({type:"simple"})}>Simple</button>
-          <button className='btn btn-outline-warning py-1' onClick={()=>setSearchParams({type:"rugged"})}>Rugged</button>
-          <button className='btn btn-outline-warning py-1' onClick={()=>setSearchParams({type:"luxury"})}>Luxury</button>
-          <button className='btn btn-outline-warning py-1' onClick={()=>setSearchParams({})}>Clear Filter</button>
+          <button style={typeFilter==="simple" ? selected:null} className='btn btn-outline-warning py-1' onClick={()=>handleFiltering('type','simple')}>Simple</button>
+          <button style={typeFilter==="rugged" ? selected:null} className='btn btn-outline-warning py-1' onClick={()=>handleFiltering('type','rugged')}>Rugged</button>
+          <button style={typeFilter==="luxury" ? selected:null} className='btn btn-outline-warning py-1' onClick={()=>handleFiltering('type','luxury')}>Luxury</button>
+          {typeFilter && <button className='btn text-decoration-underline text-danger py-1' onClick={()=>handleFiltering('type',null)}>Clear Filter</button>}
         </div>
         <div className="vancard-container mt-4">{ vanElements}</div>
       </div>):<p>Loading...</p>
