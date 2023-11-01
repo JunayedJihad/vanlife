@@ -2,13 +2,14 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
+import imageLink from '../assets/about-hero.png'
 
 const About = () => {
     return (
       <div>
 
         <div className="">
-          <img src="../about-hero.png" alt="" />
+          <img src={imageLink} alt="" />
           <div className="about-body p-4">
             <h1>Don't squeeze in a sedan when you could relax in a van</h1>
             <p>

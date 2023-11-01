@@ -4,7 +4,7 @@ import { getVans } from '../components/api';
 import { useSearchParams, NavLink, useLoaderData } from 'react-router-dom';
 
 export function loader(){
-  return getVans()
+  return getVans("/api/vans")
 }
 
 
@@ -15,7 +15,7 @@ const Vans = () => {
   const typeFilter=searchParams.get('type')
 
   let data=useLoaderData()
-  console.log(data);
+  // console.log(data);
 
   let selected={
     backgroundColor:"black",

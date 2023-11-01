@@ -15,6 +15,8 @@ import Pricing from './components/Pricing';
 import Photos from './components/Photos';
 import HostVanInfo from "./components/HostVanInfo";
 import Error from "./pages/Error";
+import Wrong from "./components/Wrong";
+import Login from "./pages/Login";
 
 
 const App = () => {
@@ -33,7 +35,8 @@ const App = () => {
       <Route path="review" element={<Review />} />
     </Route>
     <Route path="about" element={<About />} />
-    <Route path="vans" loader={vansLoader} errorElement={<Error/>} element={<Vans />} />
+    <Route path="vans" loader={vansLoader} errorElement={<Wrong/>} element={<Vans />} />
+    <Route path="login" element={<Login />} />
     <Route path="vans/:id" element={<Vandetails />} />
     <Route path='*' element={<Error/>} />
   </Route>
