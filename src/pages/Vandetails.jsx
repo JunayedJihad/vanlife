@@ -1,20 +1,16 @@
 import React from 'react';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, useLoaderData, useLocation, useParams } from 'react-router-dom';
+import { getVans } from '../components/api';
 
+export async function loader({params}){
+  return getVans(`/api/vans/${params.id}`)
+}
 
 const Vandetails = (props) => {
 
-  const param = useParams();
   const location=useLocation()
   // console.log(location);
-  const[data,setData]=React.useState(null)
-
-  React.useEffect(() => {
-    fetch(`/api/vans/${param.id}`)
-      .then((response) => response.json())
-      .then((res) => setData(res.vans));
-  }, [param.id]);
-
+  const data=useLoaderData()
 
   const search=location.state && `?${location.state.search}`||''
   const type=location.state && location.state.type||'all'
@@ -41,7 +37,7 @@ const Vandetails = (props) => {
 
    return (
      <div>
-       {data ? (
+       {data && (
          <div className="main">
            <ToVanPage />
            <div>
@@ -63,9 +59,7 @@ const Vandetails = (props) => {
              </Link>
            </div>
          </div>
-       ) : (
-         <div className="main lead">Loading...</div>
-       )}
+       ) }
      </div>
    );
 

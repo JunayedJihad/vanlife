@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, NavLink, Outlet } from 'react-router-dom';
+import { useParams, NavLink, Outlet, useLoaderData } from 'react-router-dom';
 import HostvanNavbar from '../components/HostvanNavbar';
 import HostVanInfo from '../components/HostVanInfo';
+import { getVans } from '../components/api';
+
+// Direct use params() hook use kora jabe na,only component er vitor use kora jay....................
+
+export async function loader({params}){
+  return getVans(`/api/host/vans/${params.id}`)
+}
 
 const MyVanDetails = () => {
 
-    const[details,setDetails] =useState()
-    let { id } = useParams()
-
-    useEffect(() => {
-        fetch(`/api/host/vans/${id}`)
-          .then((response) => response.json())
-          .then((response) => setDetails(response.vans));
-    }, [id])
+    const details=useLoaderData()
 
      let catStyle = {
        color: "white",

@@ -1,14 +1,15 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLoaderData } from 'react-router-dom';
+import { getVans } from './api';
+
+export async function loader({params}){
+  return getVans(`/api/host/vans`)
+}
 
 const Myvans = () => {
-    const [vanData, setVanData] = React.useState()
 
-    React.useEffect(() => {
-        fetch('/api/host/vans')
-            .then((response) => response.json())
-            .then(response=>setVanData(response.vans))
-    }, [])
+  const vanData=useLoaderData()
+
 
     let vanElements
     if (vanData) {

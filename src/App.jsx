@@ -3,14 +3,14 @@ import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } 
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Vans,{loader as vansLoader} from "./pages/Vans";
-import Vandetails from "./pages/Vandetails";
+import Vandetails,{loader as vanDetailsLoader} from "./pages/Vandetails";
 import Layout from "./components/Layout";
 import Income from './components/Income';
 import Review from './components/Review';
 import HostLayout from "./components/HostLayout";
 import Dashboard from "./components/Dashboard";
-import Myvans from "./components/Myvans";
-import MyVanDetails from './pages/MyVanDetails';
+import Myvans,{loader as myVansLoader} from "./components/Myvans";
+import MyVanDetails,{loader as myVanDetailsLoader} from './pages/MyVanDetails';
 import Pricing from './components/Pricing';
 import Photos from './components/Photos';
 import HostVanInfo from "./components/HostVanInfo";
@@ -23,21 +23,21 @@ const App = () => {
   const router=createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={<Layout />}>
     <Route index element={<Home />} />
+    <Route path="about" element={<About />} />
+    <Route path="vans" loader={vansLoader} errorElement={<Wrong/>} element={<Vans />} />
+    <Route path="vans/:id" loader={vanDetailsLoader} element={<Vandetails />} />
+    <Route path="login" element={<Login />} />
     <Route path="host" element={<HostLayout />}>
       <Route index element={<Dashboard />} />
       <Route path="income" element={<Income />} />
-      <Route path="my-vans" element={<Myvans />} />
-      <Route path="my-vans/:id" element={<MyVanDetails />}>
+      <Route path="my-vans" loader={myVansLoader} element={<Myvans />} />
+      <Route path="my-vans/:id" loader={myVanDetailsLoader} element={<MyVanDetails />}>
         <Route index element={<HostVanInfo />} />
         <Route path="pricing" element={<Pricing />} />
         <Route path="photos" element={<Photos />} />
       </Route>
       <Route path="review" element={<Review />} />
     </Route>
-    <Route path="about" element={<About />} />
-    <Route path="vans" loader={vansLoader} errorElement={<Wrong/>} element={<Vans />} />
-    <Route path="login" element={<Login />} />
-    <Route path="vans/:id" element={<Vandetails />} />
     <Route path='*' element={<Error/>} />
   </Route>
   ))
