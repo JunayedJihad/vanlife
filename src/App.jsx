@@ -30,7 +30,7 @@ const App = () => {
     <Route path="login" element={<Login />} />
     <Route path="host" loader={async ()=> await requireAuth()} element={<HostLayout />}>
       <Route index   element={<Dashboard />} />
-      <Route path="income"   element={<Income />} />
+      <Route path="income"  element={<Income />} />
       <Route path="my-vans" loader={myVansLoader} element={<Myvans />} />
       <Route path="my-vans/:id" loader={myVanDetailsLoader} errorElement={<Wrong/>} element={<MyVanDetails />}>
         <Route index  element={<HostVanInfo />} />
