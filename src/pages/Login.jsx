@@ -7,6 +7,8 @@ const Login = () => {
      const message = searchParam.get('message')
      let [loginMssg,setLoginMssg]=useState('')
      let[loginStatus,setLoginStatus]=useState(false)
+     let [formStatus,setFormStatus]=useState('')
+     let [buttonText,setButtonText]=useState('Log in')
 
 
      const[formData,setFormData] =React.useState({
@@ -14,6 +16,7 @@ const Login = () => {
           password: ''
      })
      function handleChange(e) {
+          setLoginMssg('')
           let {name,value}=e.target
           setFormData(prevData=>({
                ...prevData,
@@ -22,17 +25,22 @@ const Login = () => {
      }
      function handleSubmit(e) {
           e.preventDefault()
+          setFormStatus('submitting')
           setSearchParam('')
           // console.log(formData);
           loginUser(formData)
                .then(res=>{
-                    // console.log(res)
+                    console.log(res)
                     setLoginStatus(true)
-                    setLoginMssg(res.token)
+                    setFormStatus('')
+                    setLoginMssg(`Welcome ${res.user.name} ; ${res.token}`)
+                    setButtonText('Log Out')
                })
                .catch(err=>{
                     // console.log(err.message)
                     setLoginMssg(err.message)
+                    setButtonText('Log In')
+                    setFormStatus('')
                     setLoginStatus(false)
                })
           setFormData({
@@ -58,7 +66,7 @@ const Login = () => {
                <form  onSubmit={handleSubmit}>
                     <input onChange={handleChange} value={formData.email} className='form-control mb-3' type="email" name="email" placeholder="Enter Email" />
                     <input onChange={handleChange} value={formData.password} className='form-control' type="password" name="password" placeholder="Enter Password" />
-                    <button className='btn btn-primary mt-4'>Log in</button>
+                    {!formStatus && <button className='btn btn-primary mt-4 px-4 '>{buttonText}</button> }
                </form>
           </div>
      );
