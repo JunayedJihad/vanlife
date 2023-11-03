@@ -3,7 +3,7 @@ import { NavLink, useLoaderData } from "react-router-dom";
 import { getVans } from "./api";
 import { requireAuth } from "./util";
 
-export async function loader({ params }) {
+export async function loader() {
   await requireAuth()
   return getVans(`/api/host/vans`);
 }
