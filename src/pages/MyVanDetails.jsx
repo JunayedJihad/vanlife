@@ -7,8 +7,8 @@ import { requireAuth } from "../components/util";
 
 // Direct use params() hook use kora jabe na,only component er vitor use kora jay....................
 
-export async function loader({ params }) {
-  await requireAuth()
+export async function loader({ params,request }) {
+  await requireAuth(request)
   return getVans(`/api/host/vans/${params.id}`);
 }
 
