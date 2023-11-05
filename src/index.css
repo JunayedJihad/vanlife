@@ -25,7 +25,7 @@ span,a{
 .nav{
     display: flex;
     background-color: beige;
-    height: 15vh;
+    height: 10vh;
     align-items: center;
     gap: 2rem;
     padding: 0 2rem;

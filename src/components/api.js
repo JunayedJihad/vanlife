@@ -27,4 +27,4 @@ export async function loginUser(creds) {
      }
 
      return data
- }
+}

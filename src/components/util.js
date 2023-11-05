@@ -1,11 +1,10 @@
-import { Navigate, redirect, redirectDocument } from "react-router-dom";
-import Login from "../pages/Login";
+import { redirect } from "react-router-dom";
 
 export async function requireAuth() {
-  const isLoggedIn = false;
+  const isLoggedIn = true;
 
   if (!isLoggedIn) {
-    let response= redirect("/login/?message=you must log in first");
+    let response= redirect("/login?message=you must log in first");
     response.body=''
     throw response
   }
